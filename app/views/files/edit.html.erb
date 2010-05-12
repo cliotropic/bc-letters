@@ -1,0 +1,24 @@
+<h1>Editing file</h1>
+
+<% form_for(@file) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :path_from_root %><br />
+    <%= f.text_field :path_from_root %>
+  </p>
+  <p>
+    <%= f.label :citation_link %><br />
+    <%= f.text_field :citation_link %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @file %> |
+<%= link_to 'Back', files_path %>

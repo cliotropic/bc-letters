@@ -1,0 +1,26 @@
+<h1>Listing document_files</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Path from root</th>
+    <th>Citation link</th>
+    <th>Pagenum</th>
+  </tr>
+
+<% @document_files.each do |document_file| %>
+  <tr>
+    <td><%=h document_file.name %></td>
+    <td><%=h document_file.path_from_root %></td>
+    <td><%=h document_file.citation_link %></td>
+    <td><%=h document_file.pagenum %></td>
+    <td><%= link_to 'Show', document_file %></td>
+    <td><%= link_to 'Edit', edit_document_file_path(document_file) %></td>
+    <td><%= link_to 'Destroy', document_file, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New document_file', new_document_file_path %>

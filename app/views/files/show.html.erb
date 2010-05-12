@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @file.name %>
+</p>
+
+<p>
+  <b>Path from root:</b>
+  <%=h @file.path_from_root %>
+</p>
+
+<p>
+  <b>Citation link:</b>
+  <%=h @file.citation_link %>
+</p>
+
+
+<%= link_to 'Edit', edit_file_path(@file) %> |
+<%= link_to 'Back', files_path %>

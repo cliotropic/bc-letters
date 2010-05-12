@@ -1,0 +1,24 @@
+<h1>Listing files</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Path from root</th>
+    <th>Citation link</th>
+  </tr>
+
+<% @files.each do |file| %>
+  <tr>
+    <td><%=h file.name %></td>
+    <td><%=h file.path_from_root %></td>
+    <td><%=h file.citation_link %></td>
+    <td><%= link_to 'Show', file %></td>
+    <td><%= link_to 'Edit', edit_file_path(file) %></td>
+    <td><%= link_to 'Destroy', file, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New file', new_file_path %>

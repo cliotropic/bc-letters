@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  path_from_root: MyString
+  citation_link: MyString
+  pagenum: 1
+
+two:
+  name: MyString
+  path_from_root: MyString
+  citation_link: MyString
+  pagenum: 1
