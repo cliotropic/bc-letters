@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  number: 1
+  size: MyString
+  references: 
+  references: 
+
+two:
+  title: MyString
+  number: 1
+  size: MyString
+  references: 
+  references: 

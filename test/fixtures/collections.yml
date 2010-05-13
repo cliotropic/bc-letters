@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  record_group: MyString
+  location: MyString
+  references: 
+
+two:
+  title: MyString
+  record_group: MyString
+  location: MyString
+  references: 

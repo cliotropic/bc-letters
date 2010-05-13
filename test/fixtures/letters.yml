@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  letter_date: 2010-05-13
+  author_name: MyString
+  author_place: 
+  birth_place: 
+  birth_date: 2010-05-13
+  author_relation_to_bcperson: 
+  topics: 
+  document_files: 
+  folder: 
+
+two:
+  letter_date: 2010-05-13
+  author_name: MyString
+  author_place: 
+  birth_place: 
+  birth_date: 2010-05-13
+  author_relation_to_bcperson: 
+  topics: 
+  document_files: 
+  folder: 
