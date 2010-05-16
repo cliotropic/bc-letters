@@ -1,0 +1,28 @@
+<h1>Editing document_file</h1>
+
+<% form_for(@document_file) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :path_from_root %><br />
+    <%= f.text_field :path_from_root %>
+  </p>
+  <p>
+    <%= f.label :citation_link %><br />
+    <%= f.text_field :citation_link %>
+  </p>
+  <p>
+    <%= f.label :pagenum %><br />
+    <%= f.text_field :pagenum %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @document_file %> |
+<%= link_to 'Back', document_files_path %>

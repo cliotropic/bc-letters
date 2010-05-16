@@ -1,8 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :document_files
-
-  map.resources :files
-
+  map.resources :document_files, :active_scaffold => true
+  map.resources :letters, :active_scaffold => true
+  map.resources :boxes, :active_scaffold => true
+  map.resources :collections, :active_scaffold => true
+  map.resources :series, :active_scaffold => true
+  map.resources :folders, :active_scaffold => true
+  map.resources :topics, :active_scaffold => true
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -44,4 +48,5 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.root :controller => "home" 
 end

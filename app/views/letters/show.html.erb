@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @document_file.name %>
+</p>
+
+<p>
+  <b>Path from root:</b>
+  <%=h @document_file.path_from_root %>
+</p>
+
+<p>
+  <b>Citation link:</b>
+  <%=h @document_file.citation_link %>
+</p>
+
+<p>
+  <b>Pagenum:</b>
+  <%=h @document_file.pagenum %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_file_path(@document_file) %> |
+<%= link_to 'Back', document_files_path %>

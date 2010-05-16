@@ -1,0 +1,47 @@
+<h1>Listing letters</h1>
+
+<!---    	l.date :letter_date 
+    	l.string :author_name
+    	l.references :author_place
+    	l.references :birth_place
+    	l.date :birth_date
+    	l.references :author_relation_to_bcperson
+    	l.has_many :topics
+    	l.has_many :document_files
+    	l.belongs_to :folder
+    	l.timestamps --->
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Author Name</th>
+    <th>Author Place</th>
+    <th>Birth Place</th>
+    <th>Birth Date</th>
+    <th>Author Rel to BCPerson</th>
+    <th>Topics</th>
+    <th>Images</th>
+    <th>Folder</th>
+  </tr>
+
+<% @letters.each do |letter| %>
+  <tr>
+    <td><%=h letter.date %></td>
+    <td><%=h letter.author_name %></td>
+    <td><%=h letter.author_place %></td>
+    <td><%=h letter.birth_place %></td>
+    <td><%=h letter.birth_date %></td>
+    <td><%=h letter.author_relation_to_bcperson %></td>
+    <td><%=h letter.topics %></td>
+    <td><%=h letter.document_files %></td>
+    <td><%=h letter.folder %></td>
+    
+    <td><%= link_to 'Show', letter %></td>
+    <td><%= link_to 'Edit', edit_letter_path(letter) %></td>
+    <td><%= link_to 'Destroy', letter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New letter', new_letter_path %>
