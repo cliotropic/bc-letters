@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100513171312) do
+ActiveRecord::Schema.define(:version => 2) do
 
   create_table "boxes", :force => true do |t|
     t.string   "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20100513171312) do
     t.text     "transcription"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "letter_id"
   end
 
   create_table "folders", :force => true do |t|
@@ -53,10 +54,15 @@ ActiveRecord::Schema.define(:version => 20100513171312) do
     t.integer  "author_place_id"
     t.integer  "birth_place_id"
     t.date     "birth_date"
-    t.integer  "author_relation_to_bcperson_id"
+    t.integer  "author_relation_to_bcperson"
     t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "letters_topics", :id => false, :force => true do |t|
+    t.integer "letter_id"
+    t.integer "topic_id"
   end
 
   create_table "places", :force => true do |t|
