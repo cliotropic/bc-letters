@@ -1,0 +1,19 @@
+TODO for BC-letters
+===================
+
+- More documentation.
+
+- Read documentfiles information in from a base path:
+    Build an importer that slurps in metadata about files and links to originals. It could start 
+    in a folder directory or higher up, but it should be capable of doing a recursive walk of a collection down from the Series level, at least.
+   
+- Make item pages export Zotero information for citation
+    The idea here is that this application should prototype what information is necessary to keep
+    in a personal research database that'll interface with one's citation database; 
+    interoperability, rather than data silos.
+   
+- Give letters the ability to know their own pages in order
+	This would enable all the pages of a letter to be shown as thumbnails and then clicked on for
+	a zoom view.
+	
+- Create wrapper methods in Letter for DocumentFiles transcriptions, lined up.
