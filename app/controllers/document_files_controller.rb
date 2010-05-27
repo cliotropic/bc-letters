@@ -8,12 +8,13 @@ class DocumentFilesController < ApplicationController
   end
 end
 
-module DocumentFilesHelper
- def document_file_column(record)
-   document_file_tag record.public_filename(:thumb)
- end
+#module DocumentFilesHelper < ListColumnHelpers
+
+# def document_file_column(record)
+#   document_file_tag record.public_filename(:thumbnail)
+# end
  #def image_column(record)
  	 #image_tag record.url_for_file_column(:image)
  	 #image_tag record.url_for_file_column(:image)
  #end
-end
+#end

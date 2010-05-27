@@ -5,7 +5,17 @@ TODO for BC-letters
 
 - Read documentfiles information in from a base path:
     Build an importer that slurps in metadata about files and links to originals. It could start 
-    in a folder directory or higher up, but it should be capable of doing a recursive walk of a collection down from the Series level, at least.
+    in a folder directory or higher up, but it should be capable of doing a recursive walk of a 
+    collection down from the Series level, at least.
+	ETA: start at the Box level, perhaps.
+
+- Group unassigned images to create letters.
+
+- Placename support
+
+- Mapping places
+
+- Place mapping at particular times with Simile widget.
    
 - Make item pages export Zotero information for citation
     The idea here is that this application should prototype what information is necessary to keep
@@ -17,3 +27,6 @@ TODO for BC-letters
 	a zoom view.
 	
 - Create wrapper methods in Letter for DocumentFiles transcriptions, lined up.
+
+- Consider using Paperclip for attachments instead of attachment_fu
+	(http://github.com/thoughtbot/paperclip) 

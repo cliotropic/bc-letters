@@ -1,0 +1,3 @@
+[submodule "vendor/thoughtbot/paperclip"]
+	path = vendor/thoughtbot/paperclip
+	url = http://github.com/thoughtbot/paperclip.git
