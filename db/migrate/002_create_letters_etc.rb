@@ -1,8 +1,6 @@
 class CreateLettersEtc	 < ActiveRecord::Migration
   def self.up
 	
-		add_column :document_files, :letter_id, :integer
-			
     create_table :letters do |l|
     	l.date :letter_date 
     	l.string :author_name
@@ -42,8 +40,7 @@ class CreateLettersEtc	 < ActiveRecord::Migration
     	f.string :title
     	f.integer :number
     	f.integer :number_within_box
-    	f.belongs_to :box
-    	f.has_many :letters
+    	f.integer :box_id
     	f.timestamps
     	{:id => true }
     end
@@ -52,17 +49,14 @@ class CreateLettersEtc	 < ActiveRecord::Migration
     	b.string :title
     	b.integer :number
     	b.string :size
-    	b.has_many :folders
-    	b.belongs_to :series
-    	
+    	b.integer :series_id    	
     	b.timestamps
     	{:id => true }
     end
   
     create_table :series do |s|
     	s.string :title
-    	s.belongs_to :collection
-    	s.has_many :boxes
+    	s.integer :collection_id
     	s.timestamps
     	{:id => true }
     end
