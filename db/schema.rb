@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(:version => 2) do
     t.string   "path_from_root"
     t.string   "citation_link"
     t.integer  "pagenum"
+    t.integer  "letter_id"
     t.text     "transcription"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "letter_id"
   end
 
   create_table "folders", :force => true do |t|
