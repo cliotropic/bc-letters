@@ -5,7 +5,7 @@ class DocumentFile < ActiveRecord::Base
 	belongs_to :folder
 	has_attached_file :image, :styles => { :medium => "640x", :thumbnail => "50x" } 
   attr_protected :image_file_name, :image_content_type, :image_size
-  attr_accessor :image_original_url
+  attr_accessor :image_original_url, :name, :path_from_root, :citation_link, :pagenum, :transcription
 
 	# This trick, of having a remotely accessible URL, via Trevor Turk:
 	#   http://trevorturk.com/2008/12/11/easy-upload-via-url-with-paperclip/
