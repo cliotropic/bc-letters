@@ -3,8 +3,9 @@ class Box < ActiveRecord::Base
 	belongs_to :series, :class_name => "Series", :foreign_key => "series_id"
 
 	def label
- 		"Box " + number.to_s() + " (" + title + ")"
+ 		l = "Box " + number.to_s()
+ 		if title
+ 			l = l + " (" + title + ")"
+ 		end
   end
-
 end
-

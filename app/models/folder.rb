@@ -4,7 +4,14 @@ class Folder < ActiveRecord::Base
 	belongs_to :boxes, :class_name => "Box", :foreign_key => "box_id"
 
 	def label
- 		"Folder " + number.to_s() + " (" + title + ")"
+ 		l = "Folder"
+ 		if number
+ 		  l = l + " " + number.to_s() 
+ 		end
+ 		if title
+ 			l = l + " (" + title + ")"
+ 		end
+
   end
 
 end
