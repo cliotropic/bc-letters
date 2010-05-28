@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "boxes", :force => true do |t|
     t.string   "title"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(:version => 2) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image_original_url"
+    t.integer  "folder_id"
   end
 
   create_table "folders", :force => true do |t|
