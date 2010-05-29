@@ -1,7 +1,7 @@
 class FoldersController < ApplicationController
   layout "admin"
   active_scaffold :folder do |config|
-		config.columns = [:boxes, :title, :number, :number_within_box]
+		config.columns = [:boxes, :title, :number, :number_within_box, :document_files, :letters]
 		config.list.sorting = { :boxes => :asc, :title => :desc }
 		config.update.columns = [ :title, :number, :number_within_box, :boxes]
 		

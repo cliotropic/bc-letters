@@ -1,11 +1,10 @@
 require 'open-uri'
 
 class DocumentFile < ActiveRecord::Base
-	belongs_to :letter
-	belongs_to :folder
+	belongs_to :letter, :class_name => "Letter", :foreign_key => "letter_id"
+	belongs_to :folder, :class_name => "Folder", :foreign_key => "folder_id"
 	has_attached_file :image, :styles => { :medium => "640x", :thumbnail => "50x" } 
-  attr_protected :image_file_name, :image_content_type, :image_size
-  attr_accessor :image_original_url, :name, :path_from_root, :citation_link, :pagenum, :transcription
+  attr_protected :image_file_name, :image_content_type, :image_size, :transcription, :citation_link, :pagenum, :image_original_url, :name, :path_from_root
 
 	# This trick, of having a remotely accessible URL, via Trevor Turk:
 	#   http://trevorturk.com/2008/12/11/easy-upload-via-url-with-paperclip/
@@ -38,7 +37,7 @@ class DocumentFile < ActiveRecord::Base
 				def io.original_filename; base_uri.path.split('/').last; end
 				io.original_filename.blank? ? nil : io
 			end
-		#rescue # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
+		rescue # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
 		end
     def is_local_file(url)
       (url =~ /(^\/)|(^file:\/\/\/)/) != nil

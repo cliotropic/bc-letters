@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/as_paperclip_bridge"]
 	path = vendor/plugins/as_paperclip_bridge
 	url = git@github.com:cliotropic/as_paperclip_bridge.git
+[submodule "vendor/thoughtbot/paperclip"]
+	path = vendor/thoughtbot/paperclip
+	url = http://github.com/thoughtbot/paperclip.git

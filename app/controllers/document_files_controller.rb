@@ -1,20 +1,18 @@
 class DocumentFilesController < ApplicationController
   layout "admin"
   active_scaffold :document_file do |config|
-#    config.columns.add :uploaded_data
+		config.columns = [:folder, :image, :image_file_name, :name, :letter]
+		config.action_links.add 'zoom', :label => 'Zoom'
+
+	  # default sorting: everything in a folder together, then by image filename
+		config.list.sorting = [{:folder_id => :desc},{:image_file_name => :asc}]
+
     config.create.multipart = true
-#    config.create.columns = [:uploaded_data, :name]
-#    config.list.columns = [:filename, :image]
+
+		config.update.columns.add_subgroup "Image Details" do |details|
+  		details.add :image_file_name, :path_from_root, :image_original_url, :image_content_type
+		end
   end
+
 end
 
-#module DocumentFilesHelper < ListColumnHelpers
-
-# def document_file_column(record)
-#   document_file_tag record.public_filename(:thumbnail)
-# end
- #def image_column(record)
- 	 #image_tag record.url_for_file_column(:image)
- 	 #image_tag record.url_for_file_column(:image)
- #end
-#end
