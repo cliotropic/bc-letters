@@ -1,8 +1,6 @@
-<div style="background-color: white; padding: 5px; border: 1px solid blue; width: 640px;">
+<div style="background-color: white; padding: 10px; border: 1px solid blue; width: 640px;">
 <p>
 	<% df = DocumentFile.find_by_id(params[:id]) %>
-  <%= image_tag(df.image.url(:medium), :alt => 'foo', :title => df.image_file_name) %>
-</p>
-<p> 
-	<%= link_to_close_redbox("Close", {}) %>
+  <%= link_to_close_redbox(image_tag(df.image.url(:medium), :alt => df.image_file_name, 
+  				:title => df.image_file_name + "; click to close popup.") ) %>
 </p>
