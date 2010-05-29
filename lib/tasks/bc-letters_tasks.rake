@@ -1,5 +1,7 @@
 require 'find'
 
+ROOT_PATH_KEYWORD = 'Archival'
+
 def obtain_basepath
   basepath_name = ENV['BASEPATH'] || ENV['basepath']
   raise "Must specify BASEPATH" unless basepath_name
@@ -28,7 +30,7 @@ def build_boxdetails(boxes)
 	hierarchy.each do |level|
 		i = i+1
 		debug i
-		if level == "Archival"
+		if level == ROOT_PATH_KEYWORD
 			# path is like "...Archival/repository location/collectiontitle (RG rgnum)/seriestitle/Box boxnum"
 			location = hierarchy[i]
 			coll = hierarchy[i+1]  # sort of
@@ -45,7 +47,8 @@ def build_boxdetails(boxes)
 		boxnum = boxstr.split("/")[-1].split(" ")[1]   # pull the box number off the end of the path
 		c = Collection.find_or_create_by_title( :title => colltitle, :record_group => rgnum, :location => location)
 	  s = Series.find_or_create_by_title( :title => seriestitle, :collection_id => c.id)
-		b = Box.find_or_create_by_number( :number => boxnum, :series_id => s.id, :title => '', :size => '')
+		b = Box.find_or_create_by_number_and_series_id( :number => boxnum, :series_id => s.id )
+    debug "BOX: " + b.to_yaml()
 
 	  thisbox = { :boxnum =>boxnum, :series => s, :collection => c, :boxobj => b, :fullpath => boxstr}
 											
@@ -60,16 +63,20 @@ def make_folder_in_box_for(box, path)
 	# Find the Box in this path
 	parser = /\/Box (\d+)\/Folder ([^\/]+)/
 	matches = parser.match(path)
+	f=nil
 	if matches
 		boxnum, folder = matches.captures
-		debug "captured Box #{box}, Folder #{folder}"
+		#debug "captured Box #{box}, Folder #{folder}"
 		if box[:boxnum] == boxnum
-			debug "In the correct box."
+			#debug "In the correct box."
 			b = box[:boxobj]
 		end
 		f = Folder.find_or_create_by_title(:title => folder, :box_id => b.id)
 	end
+end
 
+def root_relative_path_of(fullpath)
+	path_from_root = fullpath.split(ROOT_PATH_KEYWORD)[1]
 end
 
 def process_box(box)
@@ -78,29 +85,40 @@ def process_box(box)
   	if File.basename(path)[0] == ?.   # this is a hidden file/path
       Find.prune       # Don't look any further into this directory.
     end
+
     
 		if path[-3..-1].downcase == 'jpg'
+			# anything that makes it past here is a jpg.
+
+			# Ensure there's a folder object to attach this document_file to.
 			folder = make_folder_in_box_for(box, path)
+			
+			imagetitle = path.split('/')[-1][0..-5]
+
+	  	if folder
+				debug "Building documentfile for #{imagetitle} in #{folder.title}"
+				df = DocumentFile.find_by_image_original_url(path)
+				unless df
+					df = DocumentFile.find_or_initialize_by_image_original_url(path)
+					df.name = imagetitle
+					df.folder_id = folder.id,
+					df.path_from_root = root_relative_path_of(path)										
+					df.save!
+#					debug "Root path: "+ df.path_from_root
+
+				else
+					df.path_from_root = root_relative_path_of(path)
+					df.save!
+#					debug "Root path: "+ df.path_from_root
+				end
+				df = DocumentFile.find_by_image_original_url(path)
+				debug "Root path after reload: "+ df.path_from_root
+
+			end
     else
       next
     end
 
-		# anything that makes it past here is a jpg.
-    if FileTest.directory?(path)
-			if File.basename(path) =~ /Folder (.*)/  
-				# I see a folder. Make a folder for it.
-				debug "Folder title is #{$-.captures[0]}"
-				f = Folder.find_or_create_by_title( :title => $-.captures[0] )
-				next
-			else
-				next
-			end
-    	# walk the folder
-    else
-    	debug "import documentfile here"
-			# see if we're inside a folder, and if so get that folder's object
-      # make a documentfile object inside the folder.
-    end
   end
 end
 
@@ -111,7 +129,9 @@ namespace :bcletters do
 #			basepath = obtain_basepath()
 			myboxes = build_boxdetails(boxes_from_basepath(obtain_basepath))
 			myboxes.each do |b|
-				process_box(b)
+				b[:boxobj].transaction do
+					process_box(b)
+				end
 			end
 		end
 	end	
