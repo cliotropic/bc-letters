@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   ActiveScaffold.set_defaults do |config| 
     config.ignore_columns.add [:created_at, :updated_at, :lock_version]
+		# TODO: when marking records in lists matures in ActiveScaffold master, use this:
+		# http://github.com/vhochstein/active_scaffold/commit/30ceee8bd7e1a33f8
+		#config.list.mark_records = true
+
   end
 
 end
