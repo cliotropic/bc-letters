@@ -66,9 +66,9 @@ def make_folder_in_box_for(box, path)
 	f=nil
 	if matches
 		boxnum, folder = matches.captures
-		#debug "captured Box #{box}, Folder #{folder}"
+		debug "captured Box #{boxnum}, Folder #{folder}"
 		if box[:boxnum] == boxnum
-			#debug "In the correct box."
+			debug "In the correct box."
 			b = box[:boxobj]
 		end
 		f = Folder.find_or_create_by_title(:title => folder, :box_id => b.id)
@@ -101,18 +101,20 @@ def process_box(box)
 				unless df
 					df = DocumentFile.find_or_initialize_by_image_original_url(path)
 					df.name = imagetitle
-					df.folder_id = folder.id,
+					df.folder_id = folder.id
 					df.path_from_root = root_relative_path_of(path)										
 					df.save!
-#					debug "Root path: "+ df.path_from_root
+					debug "Root path: "+ df.path_from_root
 
 				else
+					# confirm that these data items are being set correctly; they were buggy in the past
 					df.path_from_root = root_relative_path_of(path)
+					df.folder_id = folder.id
 					df.save!
-#					debug "Root path: "+ df.path_from_root
+					debug "Root path: "+ df.path_from_root
 				end
 				df = DocumentFile.find_by_image_original_url(path)
-				debug "Root path after reload: "+ df.path_from_root
+				debug "Root path after reload: "+ (df ? df.path_from_root : 'NONE')
 
 			end
     else
