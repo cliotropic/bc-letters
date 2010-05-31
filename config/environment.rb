@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   #config.gem "active_scaffold"
   #config.gem "as_paperclip_bridge", :source => "http://github.com/mnaglik/as_paperclip_bridge.git"
   config.gem "geokit"
-
+  config.gem "calendar_date_select"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
