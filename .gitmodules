@@ -4,12 +4,12 @@
 [submodule "vendor/thoughtbot/paperclip"]
 	path = vendor/thoughtbot/paperclip
 	url = http://github.com/thoughtbot/paperclip.git
-[submodule "vendor/plugins/active_scaffold"]
-	path = vendor/plugins/active_scaffold
-	url = http://github.com/activescaffold/active_scaffold.git
 [submodule "vendor/plugins/redbox"]
 	path = vendor/plugins/redbox
 	url = http://github.com/craigambrose/redbox.git
 [submodule "vendor/plugins/render_component"]
 	path = vendor/plugins/render_component
 	url = http://github.com/rails/render_component.git
+[submodule "vendor/plugins/active_scaffold"]
+	path = vendor/plugins/active_scaffold
+	url = http://github.com/activescaffold/active_scaffold.git
