@@ -2,3 +2,9 @@ log/*.log
 tmp/**/*
 doc/api
 doc/app
+vendor/plugins/**
+vendor/plugins/render_component
+vendor/plugins/redbox
+vendor/thoughtbot/paperclip
+vendor/plugins/as_paperclip_bridge
+vendor/plugins/active_scaffold
