@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "paperclip"
   #config.gem "active_scaffold"
   #config.gem "as_paperclip_bridge", :source => "http://github.com/mnaglik/as_paperclip_bridge.git"
+  config.gem "geokit"
 
 
   # Only load the plugins named here, in the order given (default is alphabetical).

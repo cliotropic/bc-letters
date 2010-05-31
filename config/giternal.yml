@@ -8,8 +8,11 @@ redbox:
   repo: git://github.com/craigambrose/redbox.git
   path: vendor/plugins
 render_component:
-  repo: http://github.com/rails/render_component.git
+  repo: http://github.com/glappen/render_component.git
   path: vendor/plugins
 active_scaffold:
   repo: git://github.com/activescaffold/active_scaffold.git
+  path: vendor/plugins
+geokit:
+  repo: git://github.com/andre/geokit-rails.git
   path: vendor/plugins
