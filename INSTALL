@@ -8,13 +8,21 @@ run the following commands at a shell prompt:
  git submodule init
  git submodule update
  rake gems:install     # to install some dependencies
+
+Now, set up config/database.yml with information about where you'd like to store
+the data. (See the Rails documentation if you need to know how to do this. The
+data that's there by default works on my own machine.)
+ 
  rake db:migrate       # set up database
  script/server         # start the server
+
+You can play with the application by loading http://localhost:3000/ in a web browser.
+You won't see much until you import your own images.
 
 Importing images
 ================
 
-First, read lib/tasks/bc-letters_tasks.rake so that you understand the file setup
+If you want to import your own images into the database, first read lib/tasks/bc-letters_tasks.rake so that you understand the file setup
 the box importer is looking for. You'll need to set $BASEPATH according to the
 instructions found there. Then, to import the image information and file the images:
  
