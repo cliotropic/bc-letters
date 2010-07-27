@@ -3,10 +3,13 @@ log/*.log
 tmp/**/*
 doc/api
 doc/app
+public/system
+public/document_file
 vendor/plugins/**
 vendor/plugins/render_component
 vendor/plugins/redbox
 vendor/thoughtbot/paperclip
+vendor/red_artisan/core_image
 vendor/plugins/as_paperclip_bridge
 vendor/plugins/active_scaffold
 vendor/plugins/geokit
