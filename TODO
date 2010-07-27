@@ -3,6 +3,8 @@ TODO for BC-letters
 
 - More documentation.
 
+- A formal test suite.
+
 - Group unassigned images to create letters.
 
 - Placename support
@@ -12,15 +14,10 @@ TODO for BC-letters
 - Place mapping at particular times with Simile widget.
    
 - Make item pages export Zotero information for citation
-    The idea here is that this application should prototype what information is necessary to keep
-    in a personal research database that'll interface with one's citation database; 
-    interoperability, rather than data silos.
+    The idea here is that the application should keep specialized information that
+    goes beyond what I can keep in Zotero, but it should be easy to cite the original source document from a Letter page, using COiNS metadata.
    
 - Give letters the ability to know their own pages in order
-    This would enable all the pages of a letter to be shown as thumbnails and then clicked on for
-    a zoom view.
+    This would enable all the pages of a letter to be shown as thumbnails and then clicked on for a zoom view.
 	
 - Create wrapper methods in Letter for DocumentFiles transcriptions, lined up.
-
-- Consider using Paperclip for attachments instead of attachment_fu
-    (http://github.com/thoughtbot/paperclip) 
