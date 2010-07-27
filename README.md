@@ -14,6 +14,8 @@ Limitations
 bc-letters is designed around my own particular needs, and it's in constant development. I make no guarantees that it'll be useful for your purposes, but 
 you can see some of the features I'd like to add in TODO. 
 
+See INSTALL for current information on setting this up for yourself.
+
 If you're interested in hacking on a more generalized software toolkit for geographic mapping of correspondence collections, please contact me through GitHub:
   
   http://github.com/cliotropic

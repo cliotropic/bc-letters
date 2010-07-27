@@ -1,0 +1,21 @@
+Installing bc-letters
+=====================
+
+bc-letters is currently only available on github. To install it and its submodules,
+run the following commands at a shell prompt:
+
+ git clone git@github.com:cliotropic/bc-letters.git
+ git submodule init
+ git submodule update
+ rake gems:install     # to install some dependencies
+ rake db:migrate       # set up database
+ script/server         # start the server
+
+Importing images
+================
+
+First, read lib/tasks/bc-letters_tasks.rake so that you understand the file setup
+the box importer is looking for. You'll need to set $BASEPATH according to the
+instructions found there. Then, to import the image information and file the images:
+ 
+ rake bcletters:import:boxpath
