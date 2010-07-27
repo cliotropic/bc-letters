@@ -3,12 +3,6 @@ TODO for BC-letters
 
 - More documentation.
 
-- Read documentfiles information in from a base path:
-    Build an importer that slurps in metadata about files and links to originals. It could start 
-    in a folder directory or higher up, but it should be capable of doing a recursive walk of a 
-    collection down from the Series level, at least.
-	ETA: start at the Box level, perhaps.
-
 - Group unassigned images to create letters.
 
 - Placename support
@@ -23,10 +17,10 @@ TODO for BC-letters
     interoperability, rather than data silos.
    
 - Give letters the ability to know their own pages in order
-	This would enable all the pages of a letter to be shown as thumbnails and then clicked on for
-	a zoom view.
+    This would enable all the pages of a letter to be shown as thumbnails and then clicked on for
+    a zoom view.
 	
 - Create wrapper methods in Letter for DocumentFiles transcriptions, lined up.
 
 - Consider using Paperclip for attachments instead of attachment_fu
-	(http://github.com/thoughtbot/paperclip) 
+    (http://github.com/thoughtbot/paperclip) 
